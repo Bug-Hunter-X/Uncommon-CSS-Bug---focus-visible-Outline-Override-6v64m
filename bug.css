@@ -1,0 +1,13 @@
+The following CSS code snippet demonstrates an uncommon error related to the `:focus-visible` pseudo-class:
+
+```css
+.my-element:focus-visible {
+  outline: 2px solid blue;
+}
+
+.my-element {
+  outline: none; /* This line might unintentionally override :focus-visible */
+}
+```
+
+The problem arises when a more general selector like `.my-element` has an `outline: none;` style applied. This unintentionally overrides the `outline` specified in the `:focus-visible` pseudo-class, preventing the focused element's outline from appearing even when focus-visible is supported.  The `:focus-visible` pseudo-class is intended for adding visual focus indicators only when the focus is truly noticeable to users and not programmatically triggered.

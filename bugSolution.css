@@ -1,0 +1,14 @@
+The solution involves ensuring that the `:focus-visible` selector has higher specificity or that conflicting styles are removed:
+
+```css
+.my-element {
+  /* Removing this line solves the problem */
+  /* outline: none; */
+}
+
+.my-element:focus-visible {
+  outline: 2px solid blue;
+}
+```
+
+By removing `outline: none;` from the general `.my-element` selector, the `:focus-visible` styles are applied correctly.  Alternatively, you could be very specific on the selector (using a child selector) for focus to prevent conflicts.
